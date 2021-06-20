@@ -1,6 +1,8 @@
 <template>
     <index-header />
-    <company-card />
+    <div v-for="(company, index) in companiesData" :key="index">
+        <company-card :company="company" />
+    </div>
 </template>
 
 <script>
@@ -11,7 +13,15 @@
         components: {
             IndexHeader,
             CompanyCard,
-        }
+        },
+
+        props: ['companies'],
+
+        data() {
+            return {
+                companiesData: this.companies
+            }
+        },
     }
 </script>
 
