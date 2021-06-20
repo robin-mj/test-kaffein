@@ -37,12 +37,12 @@
         data() {
             return {
                 companyData: this.company,
-                showPopUp: true,
+                showPopUp: false,
             }
         },
         
         methods: {
-            cancel() {
+            cancel: function() {
                 this.showPopUp = false
             }
         },

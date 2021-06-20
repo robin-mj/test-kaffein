@@ -30,4 +30,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/index', [CompanyController::class, 'index'])->name('index');
+Route::middleware(['auth:sanctum', 'verified'])->get('/index/{filter?}', [CompanyController::class, 'index'])->name('index');

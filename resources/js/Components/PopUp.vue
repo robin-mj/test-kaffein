@@ -61,11 +61,11 @@
         },
 
         methods: {
-            cancel() {
+            cancel: function() {
               this.$emit('cancel')  
             },
 
-            addSpacesToNumber(number) {
+            addSpacesToNumber: function(number) {
                 return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             }
         },
