@@ -14,6 +14,9 @@ class CompanyController extends Controller
 
         foreach ($companies as $company) {
             $company->name = strtolower($company->name);
+            if ($company->country == 'United States') {
+                $company->country = 'États-Unis';
+            }
         }
 
         return Inertia::render('Index', [

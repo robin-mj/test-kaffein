@@ -37,7 +37,7 @@
         data() {
             return {
                 companyData: this.company,
-                showPopUp: false,
+                showPopUp: true,
             }
         },
         
