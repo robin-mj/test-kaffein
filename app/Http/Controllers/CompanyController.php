@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Inertia\Inertia;
 use App\Models\Company;
 use Illuminate\Http\Request;
@@ -12,9 +13,7 @@ class CompanyController extends Controller
     {
         $filter = request('filter');
 
-        if ($filter == 'cosmetics') {
-            $companies = Company::where('industry', 'COSMETICS')->get();
-        } else if ($filter == 'consumer_electronics') {
+        if ($filter == 'consumer_electronics') {
             $companies = Company::where('industry', 'CONSUMER_ELECTRONICS')->get();
         } else if ($filter == 'food_beverages') {
             $companies = Company::where('industry', 'FOOD_BEVERAGES')->get();
@@ -32,9 +31,7 @@ class CompanyController extends Controller
                 $company->country = 'États-Unis';
             }
 
-            if ($company->industry == 'COSMETICS') {
-                $company->industry = 'Cosmétiques';
-            } else if ($company->industry == 'CONSUMER_ELECTRONICS') {
+            if ($company->industry == 'CONSUMER_ELECTRONICS') {
                 $company->industry = 'Électronique grand public';
             } else if ($company->industry == 'FOOD_BEVERAGES') {
                 $company->industry = 'Aliments/Boissons';

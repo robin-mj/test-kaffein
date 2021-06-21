@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use DateTime;
 use App\Models\Company;
 use Illuminate\Console\Command;
 
@@ -38,7 +39,7 @@ class ImportData extends Command
      */
     public function handle()
     {
-        // Collecting data from API
+        // Collecting companies data from API
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -68,24 +69,32 @@ class ImportData extends Command
         // Delete old data
         Company::truncate();
 
-        // Importing each company data into database
+        // Set minimum create date to allow company to be imported
+        $limit_date = new DateTime('2021-06-09');
+
+        // Importing each allowed company data into database
         foreach ($response->results as $companyData) {
-            $company = new Company;
+            $create_date = new DateTime(substr($companyData->properties->createdate, 0, 10));
 
-            $company->name = $companyData->properties->name;
-            $company->domain = $companyData->properties->domain;
-            $company->description = $companyData->properties->description;
-            $company->phone = $companyData->properties->phone;
-            // $company->email = $companyData->properties->email;
-            $company->industry = $companyData->properties->industry;
-            $company->number_of_employees = $companyData->properties->numberofemployees;
-            $company->annual_revenue = $companyData->properties->annualrevenue;
-            $company->city = $companyData->properties->city;
-            $company->zip_code = $companyData->properties->zip;
-            $company->country = $companyData->properties->country;
+            if ($create_date > $limit_date) {
+                $company = new Company;
+
+                $company->name = $companyData->properties->name;
+                $company->domain = $companyData->properties->domain;
+                $company->description = $companyData->properties->description;
+                $company->phone = $companyData->properties->phone;
+                //TODO add company email
+                // $company->email = $companyData->properties->email;
+                $company->industry = $companyData->properties->industry;
+                $company->number_of_employees = $companyData->properties->numberofemployees;
+                $company->annual_revenue = $companyData->properties->annualrevenue;
+                $company->city = $companyData->properties->city;
+                $company->zip_code = $companyData->properties->zip;
+                $company->country = $companyData->properties->country;
 
 
-            $company->save();
+                $company->save();
+            }
         }
     }
 }
