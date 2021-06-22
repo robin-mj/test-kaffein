@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <pop-up v-if="showPopUp" @cancel="cancel" :company="companyData" />
+    <pop-up v-if="showPopUp" @cancel="cancel" :company="companyData" :contact="contactData" />
 </template>
 
 <script>
@@ -37,6 +37,7 @@
         data() {
             return {
                 companyData: this.company,
+                contactData: '',
                 showPopUp: false,
             }
         },
@@ -44,11 +45,16 @@
         methods: {
             togglePopUp: function() {
                 this.showPopUp = true
+                this.getContact()
             },
 
             cancel: function() {
                 this.showPopUp = false
-            }
+            },
+
+            getContact: function() {
+                axios.get('/contact/' + this.companyData.id).then(response => this.contactData = response.data);
+            },
         },
     }
 </script>

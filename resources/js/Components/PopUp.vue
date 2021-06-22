@@ -24,20 +24,20 @@
                 </div>
             </div>
 
-            <div class="flex space-x-10 mb-5 font-montserrat font-semibold text-lg text-purple">
+            <div class="flex items-center space-x-8 mb-5 font-montserrat font-semibold text-lg text-purple">
                 <p v-if="companyData.industry">{{ companyData.industry }}</p>
-                <p v-else>Secteur d'activités non renseigné</p>
+                <p v-else>Secteur d'activités inconnu</p>
 
                 <p v-if="companyData.number_of_employees">{{ addSpacesToNumber(companyData.number_of_employees) }} employés</p>
-                <p v-else>Nombre d'employés non renseigné</p>
+                <p v-else>Nombre d'employés inconnu</p>
 
                 <p v-if="companyData.annual_revenue">{{ addSpacesToNumber(companyData.annual_revenue) }} €/an</p>
-                <p v-else>Revenu annuel non renseigné</p>
+                <p v-else>Revenu annuel inconnu</p>
             </div>
 
             <p class="mb-5">{{ companyData.description }}</p>
 
-            <contact-card class="mx-auto" />
+            <contact-card :contact="contact" class="mx-auto" />
 
         </div>
 
@@ -52,11 +52,12 @@
             ContactCard,
         },
 
-        props: ['company'],
+        props: ['company', 'contact'],
 
         data() {
             return {
-                companyData: this.company
+                companyData: this.company,
+                // contactData: this.contact,
             }
         },
 
@@ -67,7 +68,9 @@
 
             addSpacesToNumber: function(number) {
                 return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-            }
+            },
+
+            
         },
     }
 </script>

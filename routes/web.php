@@ -19,4 +19,6 @@ use App\Http\Controllers\DisplayController;
 |
 */
 
+Route::get('/contact/{id_company}', [ContactController::class, 'index']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/{filter?}', [CompanyController::class, 'index'])->name('index');

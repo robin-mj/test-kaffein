@@ -3,21 +3,22 @@
         <div class="flex items-center">
             <div class="p-8 mr-3 bg-purple"></div>
             <div>
-                <p>Prénom du contact</p>
-                <p>email@entreprise.com</p>
+                <p class="capitalize">{{ contact.first_name }}</p>
+                <p>{{ contact.email }}</p>
             </div>
         </div>
 
         <div>
-            <p>Nom du contact</p>
-            <p>+33 1 23 45 67 89</p>
+            <p class="capitalize">{{ contact.last_name }}</p>
+            <p v-if="contact.phone">{{ contact.phone }}</p>
+            <p v-else>Téléphone non renseigné</p>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        
+        props: ['contact'],
     }
 </script>
 
