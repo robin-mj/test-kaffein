@@ -19774,26 +19774,22 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-54d0dbfc");
 
 var _hoisted_1 = {
-  "class": "flex items-center justify-between space-x-2 mx-14 mt-14 mb-8"
+  "class": "flex items-center space-x-4 mx-14 mt-14 mb-8"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Toutes", -1
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Cosmétiques", -1
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Électronique grand public", -1
 /* HOISTED */
 );
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Électronique grand public", -1
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Aliments/Boissons", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Aliments/Boissons", -1
-/* HOISTED */
-);
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Logiciels informatiques", -1
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Logiciels informatiques", -1
 /* HOISTED */
 );
 
@@ -19809,31 +19805,24 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $options.filterIndustry('cosmetics');
+      return $options.filterIndustry('consumer_electronics');
     }),
-    "class": ["py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white", $props.filter == 'cosmetics' ? 'bg-purple text-white' : 'text-purple']
+    "class": ["py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white", $props.filter == 'consumer_electronics' ? 'bg-purple text-white' : 'text-purple']
   }, [_hoisted_3], 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     onClick: _cache[3] || (_cache[3] = function ($event) {
-      return $options.filterIndustry('consumer_electronics');
+      return $options.filterIndustry('food_beverages');
     }),
-    "class": ["py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white", $props.filter == 'consumer_electronics' ? 'bg-purple text-white' : 'text-purple']
+    "class": ["py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white", $props.filter == 'food_beverages' ? 'bg-purple text-white' : 'text-purple']
   }, [_hoisted_4], 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     onClick: _cache[4] || (_cache[4] = function ($event) {
-      return $options.filterIndustry('food_beverages');
-    }),
-    "class": ["py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white", $props.filter == 'food_beverages' ? 'bg-purple text-white' : 'text-purple']
-  }, [_hoisted_5], 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-    onClick: _cache[5] || (_cache[5] = function ($event) {
       return $options.filterIndustry('computer_software');
     }),
     "class": ["py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white", $props.filter == 'computer_software' ? 'bg-purple text-white' : 'text-purple']
-  }, [_hoisted_6], 2
+  }, [_hoisted_5], 2
   /* CLASS */
   )]);
 });
@@ -23330,6 +23319,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-3655eff9");
 
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-3655eff9");
+
+var _hoisted_1 = {
+  "class": "mb-16"
+};
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_index_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("index-header");
 
@@ -23337,7 +23334,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   var _component_company_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("company-card");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_index_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_filter_menu, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_index_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_filter_menu, {
     filter: $props.filter
   }, null, 8
   /* PROPS */
@@ -23351,9 +23348,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["company"])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))], 64
-  /* STABLE_FRAGMENT */
-  );
+  ))]);
 });
 
 /***/ }),

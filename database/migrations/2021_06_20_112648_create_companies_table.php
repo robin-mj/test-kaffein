@@ -19,7 +19,6 @@ class CreateCompaniesTable extends Migration
             $table->string('domain')->nullable();
             $table->string('description')->nullable();
             $table->string('phone')->nullable();
-            $table->string('email')->nullable(); // A mettre dans le endpoint
             $table->string('industry')->nullable();
             $table->string('number_of_employees')->nullable();
             $table->string('annual_revenue')->nullable();

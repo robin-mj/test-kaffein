@@ -1,4 +1,5 @@
 <template>
+<div class="mb-16">
 
     <index-header />
 
@@ -7,7 +8,8 @@
     <div v-for="(company, index) in companiesData" :key="index">
         <company-card :company="company" />
     </div>
-    
+
+</div>
 </template>
 
 <script>

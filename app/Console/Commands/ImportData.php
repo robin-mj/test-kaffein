@@ -4,7 +4,10 @@ namespace App\Console\Commands;
 
 use DateTime;
 use App\Models\Company;
+use App\Models\Contact;
+use App\HubSpotRepository;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class ImportData extends Command
 {
@@ -39,61 +42,52 @@ class ImportData extends Command
      */
     public function handle()
     {
-        // Collecting companies data from API
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.hubapi.com/crm/v3/objects/companies/?properties=name,domain,description,industry,numberofemployees,annualrevenue,city,country,zip,phone&hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "accept: application/json"
-            ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            $response = json_decode($response);
-        }
+        $repository = new HubSpotRepository();
 
         // Delete old data
+        DB::statement("SET foreign_key_checks=0");
         Company::truncate();
+        Contact::truncate();
+        DB::statement("SET foreign_key_checks=1");
+
+        // Collecting companies data from API
+        $companies_data = $repository->getCompanies();
 
         // Set minimum create date to allow company to be imported
         $limit_date = new DateTime('2021-06-09');
 
         // Importing each allowed company data into database
-        foreach ($response->results as $companyData) {
-            $create_date = new DateTime(substr($companyData->properties->createdate, 0, 10));
+        foreach ($companies_data as $company_data) {
+            $create_date = new DateTime(substr($company_data->properties->createdate, 0, 10));
 
             if ($create_date > $limit_date) {
                 $company = new Company;
 
-                $company->name = $companyData->properties->name;
-                $company->domain = $companyData->properties->domain;
-                $company->description = $companyData->properties->description;
-                $company->phone = $companyData->properties->phone;
-                //TODO add company email
-                // $company->email = $companyData->properties->email;
-                $company->industry = $companyData->properties->industry;
-                $company->number_of_employees = $companyData->properties->numberofemployees;
-                $company->annual_revenue = $companyData->properties->annualrevenue;
-                $company->city = $companyData->properties->city;
-                $company->zip_code = $companyData->properties->zip;
-                $company->country = $companyData->properties->country;
-
+                $company->name = $company_data->properties->name;
+                $company->domain = $company_data->properties->domain;
+                $company->description = $company_data->properties->description;
+                $company->phone = $company_data->properties->phone;
+                $company->industry = $company_data->properties->industry;
+                $company->number_of_employees = $company_data->properties->numberofemployees;
+                $company->annual_revenue = $company_data->properties->annualrevenue;
+                $company->city = $company_data->properties->city;
+                $company->zip_code = $company_data->properties->zip;
+                $company->country = $company_data->properties->country;
 
                 $company->save();
+
+                $contact_id = $repository->getContactId($company_data->id);
+                $contact_data = $repository->getContactProperties($contact_id);
+
+                // Store contact in database
+                $contact = new Contact;
+
+                $contact->first_name = $contact_data->properties->firstname->value;
+                $contact->last_name = $contact_data->properties->lastname->value;
+                $contact->email = $contact_data->properties->email->value;
+                $contact->ID_company = $company->id;
+
+                $contact->save();
             }
         }
     }
