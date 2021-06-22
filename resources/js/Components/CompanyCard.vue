@@ -16,7 +16,7 @@
             <p v-if="companyData.country">{{ companyData.country }}</p>
             <p v-else>Non renseigné</p>
         </div>
-        <div @click="showPopUp = true" class="py-4 px-12 bg-purple text-white rounded-full cursor-pointer select-none">
+        <div @click="togglePopUp" class="py-4 px-12 bg-purple text-white rounded-full cursor-pointer select-none">
             Voir la fiche
         </div>
     </div>
@@ -42,6 +42,10 @@
         },
         
         methods: {
+            togglePopUp: function() {
+                this.showPopUp = true
+            },
+
             cancel: function() {
                 this.showPopUp = false
             }

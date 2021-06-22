@@ -24,7 +24,7 @@
 
         methods: {
             filterIndustry: function(value) {
-                this.$inertia.get(`/index/${value}`)
+                this.$inertia.get(`/${value}`)
             },
         }
     }

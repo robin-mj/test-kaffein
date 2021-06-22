@@ -17656,6 +17656,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    togglePopUp: function togglePopUp() {
+      this.showPopUp = true;
+    },
     cancel: function cancel() {
       this.showPopUp = false;
     }
@@ -17694,7 +17697,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['filter'],
   methods: {
     filterIndustry: function filterIndustry(value) {
-      this.$inertia.get("/index/".concat(value));
+      this.$inertia.get("/".concat(value));
     }
   }
 });
@@ -19696,8 +19699,8 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_10, "Non renseigné"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [$data.companyData.country ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.country), 1
   /* TEXT */
   )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_13, "Non renseigné"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $data.showPopUp = true;
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.togglePopUp && $options.togglePopUp.apply($options, arguments);
     }),
     "class": "py-4 px-12 bg-purple text-white rounded-full cursor-pointer select-none"
   }, " Voir la fiche ")]), $data.showPopUp ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_pop_up, {
