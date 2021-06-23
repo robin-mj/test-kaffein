@@ -2,7 +2,7 @@
 <div class="flex justify-between space-x-20 mb-5">
     <div class="flex">
 
-        <div class="mr-5 p-20 bg-purple"></div>
+        <div class="mr-5 p-20 bg-purple-medium"></div>
 
         <div class="flex flex-col font-montserrat font-medium text-lg">
             <h2 class="mb-3 capitalize font-bold text-purple text-2xl">{{ companyData.name }}</h2>
@@ -11,8 +11,8 @@
             <p v-else class="mb-3">Téléphone non renseigné</p>
 
             <div class="flex items-center">
-                <a :href="'mailto:' + contact.email" class="mr-5"><i class="text-purple text-xl fas fa-envelope"></i></a>
-                <a v-if="companyData.phone" :href="'tel:' + formattedPhone"><i class="text-purple text-xl transform rotate-90 fas fa-phone"></i></a>
+                <a :href="'mailto:' + contact.email" class="mr-5"><i class="text-purple text-xl transition duration-500 ease-in-out transform hover:scale-125 fas fa-envelope"></i></a>
+                <a v-if="companyData.phone" :href="'tel:' + formattedPhone"><i class=" text-purple text-xl transition duration-500 ease-in-out transform rotate-90 hover:scale-125 fas fa-phone"></i></a>
             </div>
 
         </div>

@@ -1,8 +1,8 @@
 <template>
-    <div class="flex items-center justify-between mx-6 p-8 rounded-3xl transition duration-200 ease-in-out hover:bg-purple-light hover:shadow font-montserrat font-medium text-gray-900 text-2xl">
+    <div @click="togglePopUp" class="flex items-center justify-between mx-6 p-8 rounded-3xl cursor-pointer transition duration-200 ease-in-out hover:bg-purple-light hover:shadow font-montserrat font-medium text-gray-900 text-2xl">
 
         <div class="w-1/5 flex items-center space-x-10">
-            <div class="p-14 bg-purple"></div>
+            <div class="p-14 bg-purple-medium"></div>
             <p class="capitalize">{{ companyData.name }}</p>
         </div>
 
@@ -12,7 +12,7 @@
         </div>
 
         <div class="w-1/6 ">
-            <p v-if="companyData.city">{{ companyData.city }}</p>
+                <p v-if="companyData.city">{{ companyData.city }}</p>
             <p v-else>Non renseigné</p>
         </div>
 
@@ -21,7 +21,7 @@
             <p v-else>Non renseigné</p>
         </div>
 
-        <div @click="togglePopUp" class="py-4 px-12 bg-purple text-white rounded-full cursor-pointer select-none">
+        <div class="py-4 px-12 bg-purple text-white rounded-full transition duration-200 ease-in-out transform hover:scale-105 select-none">
             Voir la fiche
         </div>
 
