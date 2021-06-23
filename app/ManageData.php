@@ -25,7 +25,7 @@ class ManageData
      * @param Object $company_data
      * @return Company $company
      */
-    public function createCompany(Object $company_data)
+    public function createCompany(Object $company_data): Company
     {
         $company = Company::create([
             'name' => $company_data->properties->name,
@@ -46,10 +46,10 @@ class ManageData
     /**
      * Store contact information in database.
      *
-     * @param Mixed $contact_data
+     * @param Object $contact_data
      * @return Contact $contact
      */
-    public function createContact(Mixed $contact_data, int $company_id)
+    public function createContact(object $contact_data, int $company_id): Contact
     {
         $contact = Contact::create([
             'first_name' => $contact_data->properties->firstname->value,

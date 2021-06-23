@@ -11,7 +11,7 @@ class HubSpotRepository
      *
      * @return Array $companies_data
      */
-    public function getCompanies()
+    public function getCompanies(): array
     {
         $client = new Client(['base_uri' => 'https://api.hubapi.com/']);
 
@@ -40,7 +40,7 @@ class HubSpotRepository
      * @param Int $company_id
      * @return Int $contact_id
      */
-    public function getContactId(Int $company_id)
+    public function getContactId(Int $company_id): int
     {
         $client = new Client(['base_uri' => 'https://api.hubapi.com/']);
 
@@ -58,13 +58,13 @@ class HubSpotRepository
      * Get all the contact properties needed of the chosen contact.
      *
      * @param Int $contact_id
-     * @return Array $arr_body
+     * @return Object $arr_body
      */
-    public function getContactProperties(Int $contact_id)
+    public function getContactProperties(Int $contact_id): object
     {
         $client = new Client(['base_uri' => 'https://api/hubapi.com/']);
 
-        $response = $client->get('https://api.hubapi.com/contacts/v1/contact/vid/' . $contact_id . '/profile?hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab');
+        $response = $client->get('https://api.hubapi.com/contacts/v1/contact/vid/' . $contact_id . '/profile?property=firstname&property=lastname&property=email&property=mobilephone&property=hs_avatar_filemanager_key&hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab');
 
         $body = $response->getBody();
         $arr_body = json_decode($body);

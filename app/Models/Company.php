@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Company extends Model
 {
@@ -31,9 +32,9 @@ class Company extends Model
      * Filter the companies to be shown in the view according to the filter chosen by user.
      *
      * @param $filter
-     * @return Company $companies
+     * @return Collection $companies
      */
-    public function filterCompanies(?String $filter)
+    public function filterCompanies(?String $filter): Collection
     {
         if ($filter == 'consumer_electronics') {
             $companies = Company::where('industry', 'CONSUMER_ELECTRONICS')->get();
@@ -52,9 +53,9 @@ class Company extends Model
      * Replace companies data by understandable words for user.
      *
      * @param $companies
-     * @return Company $companies
+     * @return Collection $companies
      */
-    public function replaceData($companies)
+    public function replaceData($companies): Collection
     {
         foreach ($companies as $company) {
             $replacements = [
