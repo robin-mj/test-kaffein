@@ -1,5 +1,6 @@
 <template>
     <div class="flex items-center space-x-4 mx-14 mt-14 mb-8">
+
         <div @click="filterIndustry('all')" class="py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white" :class="filter == 'all' ? 'bg-purple text-white' : 'text-purple'">
             <p>Toutes</p>
         </div>
@@ -15,6 +16,7 @@
         <div @click="filterIndustry('computer_software')" class="py-2 px-6 font-montserrat font-medium text-2xl rounded-full border-2 border-purple select-none cursor-pointer transition duration-200 ease-in-out hover:bg-purple hover:text-white" :class="filter == 'computer_software' ? 'bg-purple text-white' : 'text-purple'">
             <p>Logiciels informatiques</p>
         </div>
+
     </div>
 </template>
 
@@ -29,7 +31,3 @@
         }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -3,9 +3,10 @@
 namespace App\Console\Commands;
 
 use DateTime;
+use App\HubSpotRepository;
+use App\ManageData;
 use App\Models\Company;
 use App\Models\Contact;
-use App\HubSpotRepository;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -37,52 +38,26 @@ class ImportData extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
     public function handle()
     {
-        $repository = new HubSpotRepository();
+        $repository = new HubSpotRepository;
+        $manage_data = new ManageData;
 
-        // Delete old data
-        DB::statement("SET foreign_key_checks=0");
-        Company::truncate();
-        Contact::truncate();
-        DB::statement("SET foreign_key_checks=1");
+        $manage_data->deleteData();
 
-        // Collecting companies data from API
         $companies_data = $repository->getCompanies();
 
-        // Importing each allowed company data into database
+        // Importing each company and contacts into database
         foreach ($companies_data as $company_data) {
 
-            $company = new Company;
-
-            $company->name = $company_data->properties->name;
-            $company->domain = $company_data->properties->domain;
-            $company->description = $company_data->properties->description;
-            $company->phone = $company_data->properties->phone;
-            $company->industry = $company_data->properties->industry;
-            $company->number_of_employees = $company_data->properties->numberofemployees;
-            $company->annual_revenue = $company_data->properties->annualrevenue;
-            $company->city = $company_data->properties->city;
-            $company->zip_code = $company_data->properties->zip;
-            $company->country = $company_data->properties->country;
-
-            $company->save();
+            $company = $manage_data->createCompany($company_data);
+            $company_id = $company->id;
 
             $contact_id = $repository->getContactId($company_data->id);
             $contact_data = $repository->getContactProperties($contact_id);
 
-            // Store contact in database
-            $contact = new Contact;
-
-            $contact->first_name = $contact_data->properties->firstname->value;
-            $contact->last_name = $contact_data->properties->lastname->value;
-            $contact->email = $contact_data->properties->email->value;
-            $contact->ID_company = $company->id;
-
-            $contact->save();
+            $manage_data->createContact($contact_data, $company_id);
         }
     }
 }

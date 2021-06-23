@@ -3,39 +3,10 @@
 
         <div class="bg-white p-12 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-900">
             <i @click="cancel" class="absolute top-2.5 right-3 text-lg text-purple cursor-pointer fas fa-times"></i>
-            <div class="flex justify-between space-x-20 mb-5">
-                <div class="flex">
-                    <div class="mr-5 p-20 bg-purple"></div>
-                    <div class="flex flex-col font-montserrat font-medium text-lg">
-                        <h2 class="mb-3 capitalize font-bold text-purple text-2xl">{{ companyData.name }}</h2>
-                        <a :href="'//' + companyData.domain" target="_blank" class="underline hover:text-purple transition duration-200 ease-in-out">{{ companyData.domain }}</a>
-                        <a :href="'tel:' + companyData.phone" class="mb-3">{{ companyData.phone }}</a>
-                        <div class="flex items-center">
-                            <a v-if="companyData.email" :href="'mailto:' + companyData.email"><i class="mr-5 text-purple text-xl fas fa-envelope"></i></a>
-                            <a v-if="companyData.phone" :href="'tel:' + companyData.phone"><i class="text-purple text-xl transform rotate-90 fas fa-phone"></i></a>
-                        </div>
-                    </div>
-                </div>
+            
+            <top-informations :company="companyData" />
 
-                <div class="text-right font-montserrat font-medium text-lg">
-                    <p class="mb-3 text-2xl">{{ companyData.city }}</p>
-                    <p>{{ companyData.zip_code }}</p>
-                    <p>{{ companyData.country }}</p>
-                </div>
-            </div>
-
-            <div class="flex items-center space-x-8 mb-5 font-montserrat font-semibold text-lg text-purple">
-                <p v-if="companyData.industry">{{ companyData.industry }}</p>
-                <p v-else>Secteur d'activités inconnu</p>
-
-                <p v-if="companyData.number_of_employees">{{ addSpacesToNumber(companyData.number_of_employees) }} employés</p>
-                <p v-else>Nombre d'employés inconnu</p>
-
-                <p v-if="companyData.annual_revenue">{{ addSpacesToNumber(companyData.annual_revenue) }} €/an</p>
-                <p v-else>Revenu annuel inconnu</p>
-            </div>
-
-            <p class="mb-5">{{ companyData.description }}</p>
+            <bottom-informations :company="companyData" />
 
             <contact-card :contact="contact" class="mx-auto" />
 
@@ -46,10 +17,15 @@
 
 <script>
     import ContactCard from '@/Components/ContactCard'
+    import TopInformations from '@/Components/TopInformations'
+    import BottomInformations from '@/Components/BottomInformations'
 
     export default {
         components: {
             ContactCard,
+            TopInformations,
+            BottomInformations,
+            BottomInformations,
         },
 
         props: ['company', 'contact'],
@@ -57,7 +33,6 @@
         data() {
             return {
                 companyData: this.company,
-                // contactData: this.contact,
             }
         },
 
@@ -65,16 +40,6 @@
             cancel: function() {
               this.$emit('cancel')  
             },
-
-            addSpacesToNumber: function(number) {
-                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-            },
-
-            
         },
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

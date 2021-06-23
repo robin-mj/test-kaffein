@@ -6,6 +6,11 @@ use GuzzleHttp\Client;
 
 class HubSpotRepository
 {
+    /**
+     * Get all companies and needed properties from API created after 09/06/2021.
+     *
+     * @return Array $companies_data
+     */
     public function getCompanies()
     {
         $client = new Client(['base_uri' => 'https://api.hubapi.com/']);
@@ -29,7 +34,13 @@ class HubSpotRepository
         return $companies_data;
     }
 
-    public function getContactId(int $company_id)
+    /**
+     * Get the contact id of the chosen company.
+     *
+     * @param Int $company_id
+     * @return Int $contact_id
+     */
+    public function getContactId(Int $company_id)
     {
         $client = new Client(['base_uri' => 'https://api.hubapi.com/']);
 
@@ -43,7 +54,13 @@ class HubSpotRepository
         return $contact_id;
     }
 
-    public function getContactProperties(int $contact_id)
+    /**
+     * Get all the contact properties needed of the chosen contact.
+     *
+     * @param Int $contact_id
+     * @return Array $arr_body
+     */
+    public function getContactProperties(Int $contact_id)
     {
         $client = new Client(['base_uri' => 'https://api/hubapi.com/']);
 

@@ -12,6 +12,8 @@ class CompanyController extends Controller
     {
         $filter = request('filter');
         $companies = new Company;
+
+        // Filter results and replace data where needed
         $companies = $companies->replaceData($companies->filterCompanies($filter));
 
         return Inertia::render('Index', [
