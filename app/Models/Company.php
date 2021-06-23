@@ -57,17 +57,15 @@ class Company extends Model
     public function replaceData($companies)
     {
         foreach ($companies as $company) {
-            if ($company->country == 'United States') {
-                $company->country = 'États-Unis';
-            }
+            $replacements = [
+                'United States' => 'États-Unis',
+                'CONSUMER_ELECTRONICS' => 'Électronique grand public',
+                'FOOD_BEVERAGES' => 'Aliments/Boissons',
+                'COMPUTER_SOFTWARE' => 'Logiciels informatiques',
+            ];
 
-            if ($company->industry == 'CONSUMER_ELECTRONICS') {
-                $company->industry = 'Électronique grand public';
-            } else if ($company->industry == 'FOOD_BEVERAGES') {
-                $company->industry = 'Aliments/Boissons';
-            } else if ($company->industry == 'COMPUTER_SOFTWARE') {
-                $company->industry = 'Logiciels informatiques';
-            }
+            $company->country = str_replace(array_keys($replacements), $replacements, $company->country);
+            $company->industry = str_replace(array_keys($replacements), $replacements, $company->industry);
         }
 
         return $companies;

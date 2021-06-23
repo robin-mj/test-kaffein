@@ -4,7 +4,7 @@
         <div class="bg-white p-12 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-900">
             <i @click="cancel" class="absolute top-2.5 right-3 text-lg text-purple cursor-pointer fas fa-times"></i>
             
-            <top-informations :company="companyData" />
+            <top-informations :company="companyData" :contact="contact" />
 
             <bottom-informations :company="companyData" />
 

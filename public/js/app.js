@@ -17809,11 +17809,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['company'],
+  props: ['company', 'contact'],
   data: function data() {
     return {
-      companyData: this.company
+      companyData: this.company,
+      formattedPhone: ''
     };
+  },
+  mounted: function mounted() {
+    this.formatPhone();
+  },
+  methods: {
+    formatPhone: function formatPhone() {
+      if (this.companyData.phone) {
+        if (this.companyData.phone.charAt(0) != '+') {
+          this.companyData.phone = '+' + this.companyData.phone;
+        }
+
+        this.formattedPhone = this.companyData.phone.replaceAll(" ", "");
+      }
+    }
   }
 });
 
@@ -19661,6 +19676,11 @@ var _hoisted_7 = {
   key: 5
 };
 var _hoisted_8 = {
+  key: 0,
+  "class": "mb-5"
+};
+var _hoisted_9 = {
+  key: 1,
   "class": "mb-5"
 };
 
@@ -19669,13 +19689,13 @@ var _hoisted_8 = {
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [$data.companyData.industry ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.industry), 1
   /* TEXT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_3, "Secteur d'activités inconnu")), $data.companyData.number_of_employees ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.addSpacesToNumber($data.companyData.number_of_employees)) + " employés", 1
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_3, "Secteur inconnu")), $data.companyData.number_of_employees ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.addSpacesToNumber($data.companyData.number_of_employees)) + " employés", 1
   /* TEXT */
   )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_5, "Nombre d'employés inconnu")), $data.companyData.annual_revenue ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.addSpacesToNumber($data.companyData.annual_revenue)) + " €/an", 1
   /* TEXT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_7, "Revenu annuel inconnu"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.description), 1
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_7, "Revenu inconnu"))]), $data.companyData.description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.description), 1
   /* TEXT */
-  )]);
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_9, "Description indisponible"))]);
 });
 
 /***/ }),
@@ -19947,10 +19967,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     "class": "absolute top-2.5 right-3 text-lg text-purple cursor-pointer fas fa-times"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_top_informations, {
-    company: $data.companyData
+    company: $data.companyData,
+    contact: $props.contact
   }, null, 8
   /* PROPS */
-  , ["company"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_bottom_informations, {
+  , ["company", "contact"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_bottom_informations, {
     company: $data.companyData
   }, null, 8
   /* PROPS */
@@ -20002,26 +20023,41 @@ var _hoisted_5 = {
   "class": "mb-3 capitalize font-bold text-purple text-2xl"
 };
 var _hoisted_6 = {
+  key: 0,
+  "class": "mb-3"
+};
+var _hoisted_7 = {
+  key: 1,
+  "class": "mb-3"
+};
+var _hoisted_8 = {
   "class": "flex items-center"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
-  "class": "mr-5 text-purple text-xl fas fa-envelope"
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "text-purple text-xl fas fa-envelope"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "text-purple text-xl transform rotate-90 fas fa-phone"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_9 = {
+var _hoisted_11 = {
   "class": "text-right font-montserrat font-medium text-lg"
 };
-var _hoisted_10 = {
+var _hoisted_12 = {
+  key: 0
+};
+var _hoisted_13 = {
   "class": "mb-3 text-2xl"
+};
+var _hoisted_14 = {
+  key: 1,
+  "class": "text-2xl"
 };
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
@@ -20035,28 +20071,25 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "underline hover:text-purple transition duration-200 ease-in-out"
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.domain), 9
   /* TEXT, PROPS */
-  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-    href: 'tel:' + $data.companyData.phone,
-    "class": "mb-3"
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.phone), 9
-  /* TEXT, PROPS */
-  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [$data.companyData.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("a", {
+  , ["href"]), $data.companyData.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("a", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.phone), 1
+  /* TEXT */
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_7, "Téléphone non renseigné")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+    href: 'mailto:' + $props.contact.email,
+    "class": "mr-5"
+  }, [_hoisted_9], 8
+  /* PROPS */
+  , ["href"]), $data.companyData.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("a", {
     key: 0,
-    href: 'mailto:' + $data.companyData.email
-  }, [_hoisted_7], 8
+    href: 'tel:' + $data.formattedPhone
+  }, [_hoisted_10], 8
   /* PROPS */
-  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.companyData.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("a", {
-    key: 1,
-    href: 'tel:' + $data.companyData.phone
-  }, [_hoisted_8], 8
-  /* PROPS */
-  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.city), 1
+  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [$data.companyData.city && $data.companyData.zip_code && $data.companyData.country ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.city), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.zip_code), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.country), 1
   /* TEXT */
-  )])]);
+  )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_14, "Adresse inconnue"))])]);
 });
 
 /***/ }),
