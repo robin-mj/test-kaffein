@@ -53,42 +53,36 @@ class ImportData extends Command
         // Collecting companies data from API
         $companies_data = $repository->getCompanies();
 
-        // Set minimum create date to allow company to be imported
-        $limit_date = new DateTime('2021-06-09');
-
         // Importing each allowed company data into database
         foreach ($companies_data as $company_data) {
-            $create_date = new DateTime(substr($company_data->properties->createdate, 0, 10));
 
-            if ($create_date > $limit_date) {
-                $company = new Company;
+            $company = new Company;
 
-                $company->name = $company_data->properties->name;
-                $company->domain = $company_data->properties->domain;
-                $company->description = $company_data->properties->description;
-                $company->phone = $company_data->properties->phone;
-                $company->industry = $company_data->properties->industry;
-                $company->number_of_employees = $company_data->properties->numberofemployees;
-                $company->annual_revenue = $company_data->properties->annualrevenue;
-                $company->city = $company_data->properties->city;
-                $company->zip_code = $company_data->properties->zip;
-                $company->country = $company_data->properties->country;
+            $company->name = $company_data->properties->name;
+            $company->domain = $company_data->properties->domain;
+            $company->description = $company_data->properties->description;
+            $company->phone = $company_data->properties->phone;
+            $company->industry = $company_data->properties->industry;
+            $company->number_of_employees = $company_data->properties->numberofemployees;
+            $company->annual_revenue = $company_data->properties->annualrevenue;
+            $company->city = $company_data->properties->city;
+            $company->zip_code = $company_data->properties->zip;
+            $company->country = $company_data->properties->country;
 
-                $company->save();
+            $company->save();
 
-                $contact_id = $repository->getContactId($company_data->id);
-                $contact_data = $repository->getContactProperties($contact_id);
+            $contact_id = $repository->getContactId($company_data->id);
+            $contact_data = $repository->getContactProperties($contact_id);
 
-                // Store contact in database
-                $contact = new Contact;
+            // Store contact in database
+            $contact = new Contact;
 
-                $contact->first_name = $contact_data->properties->firstname->value;
-                $contact->last_name = $contact_data->properties->lastname->value;
-                $contact->email = $contact_data->properties->email->value;
-                $contact->ID_company = $company->id;
+            $contact->first_name = $contact_data->properties->firstname->value;
+            $contact->last_name = $contact_data->properties->lastname->value;
+            $contact->email = $contact_data->properties->email->value;
+            $contact->ID_company = $company->id;
 
-                $contact->save();
-            }
+            $contact->save();
         }
     }
 }

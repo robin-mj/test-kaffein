@@ -10,7 +10,17 @@ class HubSpotRepository
     {
         $client = new Client(['base_uri' => 'https://api.hubapi.com/']);
 
-        $response = $client->get('crm/v3/objects/companies?properties=name,domain,description,industry,numberofemployees,annualrevenue,city,country,zip,phone&hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab');
+
+        $response = $client->post('crm/v3/objects/companies/search?hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+            ],
+            'body' => '{
+                "filterGroups":[{"filters":[{"value":"1623196800000","propertyName":"createdate","operator":"GTE"}]}],
+                "properties": [ "name", "domain", "description", "industry", "numberofemployees", "annualrevenue", "city", "country", "zip", "phone" ]
+            }',
+        ]);
 
         $body = $response->getBody();
         $arr_body = json_decode($body);
