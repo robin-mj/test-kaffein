@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index($id_company)
+    public function index(String $id_company): Contact
     {
         // Get the contact of the company
         $contact = Contact::where('ID_company', $id_company)->first();

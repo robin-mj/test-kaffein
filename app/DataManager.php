@@ -6,7 +6,7 @@ use App\Models\Company;
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
 
-class ManageData
+class DataManager
 {
     /**
      * Delete content in companies and contacts tables.

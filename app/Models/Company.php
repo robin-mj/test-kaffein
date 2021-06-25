@@ -29,7 +29,7 @@ class Company extends Model
     ];
 
     /**
-     * Filter the companies to be shown in the view according to the filter chosen by user.
+     * Filter the companies to be shown in the view according to the filter chosen by user and order them by name.
      *
      * @param $filter
      * @return Collection $companies
@@ -37,13 +37,13 @@ class Company extends Model
     public function filterCompanies(?String $filter): Collection
     {
         if ($filter == 'consumer_electronics') {
-            $companies = Company::where('industry', 'CONSUMER_ELECTRONICS')->get();
+            $companies = Company::where('industry', 'CONSUMER_ELECTRONICS')->orderBy('name')->get();
         } else if ($filter == 'food_beverages') {
-            $companies = Company::where('industry', 'FOOD_BEVERAGES')->get();
+            $companies = Company::where('industry', 'FOOD_BEVERAGES')->orderBy('name')->get();
         } else if ($filter == 'computer_software') {
-            $companies = Company::where('industry', 'COMPUTER_SOFTWARE')->get();
+            $companies = Company::where('industry', 'COMPUTER_SOFTWARE')->orderBy('name')->get();
         } else {
-            $companies = Company::all();
+            $companies = Company::orderBy('name')->get();
         }
 
         return $companies;
@@ -52,10 +52,10 @@ class Company extends Model
     /**
      * Replace companies data by understandable words for user.
      *
-     * @param $companies
+     * @param Collection $companies
      * @return Collection $companies
      */
-    public function replaceData($companies): Collection
+    public function replaceData(Collection $companies): Collection
     {
         foreach ($companies as $company) {
             $replacements = [

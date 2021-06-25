@@ -64,7 +64,7 @@ class HubSpotRepository
     {
         $client = new Client(['base_uri' => 'https://api/hubapi.com/']);
 
-        $response = $client->get('https://api.hubapi.com/contacts/v1/contact/vid/' . $contact_id . '/profile?property=firstname&property=lastname&property=email&property=mobilephone&property=hs_avatar_filemanager_key&hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab');
+        $response = $client->get('https://api.hubapi.com/contacts/v1/contact/vid/' . $contact_id . '/profile?property=firstname&property=lastname&property=email&property=phone&property=hs_avatar_filemanager_key&hapikey=c56639c1-1983-4523-9a62-f4a0fe22e6ab');
 
         $body = $response->getBody();
         $arr_body = json_decode($body);
