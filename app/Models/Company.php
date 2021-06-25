@@ -26,6 +26,7 @@ class Company extends Model
         'city',
         'zip_code',
         'country',
+        'logo_url',
     ];
 
     /**

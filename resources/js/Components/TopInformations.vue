@@ -2,7 +2,8 @@
 <div class="flex justify-between space-x-20 mb-5">
     <div class="flex">
 
-        <div class="mr-5 p-20 bg-purple-medium"></div>
+        <img v-if="companyData.logo_url" :src="'https://cdn2.hubspot.net/' + companyData.logo_url" class="w-40" alt="Logo de l'entreprise" />
+        <div v-else class="mr-5 p-20 bg-purple-medium"></div>
 
         <div class="flex flex-col font-montserrat font-medium text-lg">
             <h2 class="mb-3 capitalize font-bold text-purple text-2xl">{{ companyData.name }}</h2>

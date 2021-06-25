@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('last_name');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('avatar_url')->nullable();
             $table->unsignedBigInteger('ID_company')->nullable();
             $table->foreign('ID_company')->references('id')->on('companies');
             $table->timestamps();

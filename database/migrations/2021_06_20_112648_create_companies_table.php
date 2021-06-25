@@ -25,6 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('country')->nullable();
+            $table->string('logo_url')->nullable();
             $table->timestamps();
         });
     }

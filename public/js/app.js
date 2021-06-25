@@ -19716,13 +19716,10 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "w-1/5 flex items-center space-x-10"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_2 = {
+  key: 1,
   "class": "p-14 bg-purple-medium"
-}, null, -1
-/* HOISTED */
-);
-
+};
 var _hoisted_3 = {
   "class": "capitalize"
 };
@@ -19768,7 +19765,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.togglePopUp && $options.togglePopUp.apply($options, arguments);
     }),
     "class": "flex items-center justify-between mx-6 p-8 rounded-3xl cursor-pointer transition duration-200 ease-in-out hover:bg-purple-light hover:shadow font-montserrat font-medium text-gray-900 text-2xl"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.name), 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [$data.companyData.logo_url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+    key: 0,
+    src: 'https://cdn2.hubspot.net/' + $data.companyData.logo_url,
+    "class": "w-28",
+    alt: "Logo de l'entreprise"
+  }, null, 8
+  /* PROPS */
+  , ["src"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.name), 1
   /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [$data.companyData.industry ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.industry), 1
   /* TEXT */
@@ -19809,13 +19813,10 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex items-center"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_3 = {
+  key: 1,
   "class": "p-8 mr-5 bg-purple-medium"
-}, null, -1
-/* HOISTED */
-);
-
+};
 var _hoisted_4 = {
   "class": "capitalize"
 };
@@ -19826,7 +19827,14 @@ var _hoisted_6 = {
   key: 1
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.contact.first_name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [$props.contact.avatar_url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+    key: 0,
+    src: 'https://cdn2.hubspot.net/' + $props.contact.avatar_url,
+    "class": "w-16",
+    alt: "Avatar du contact"
+  }, null, 8
+  /* PROPS */
+  , ["src"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.contact.first_name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.contact.last_name), 1
   /* TEXT */
@@ -20013,13 +20021,10 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_3 = {
+  key: 1,
   "class": "mr-5 p-20 bg-purple-medium"
-}, null, -1
-/* HOISTED */
-);
-
+};
 var _hoisted_4 = {
   "class": "flex flex-col font-montserrat font-medium text-lg"
 };
@@ -20067,7 +20072,14 @@ var _hoisted_14 = {
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [$data.companyData.logo_url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", {
+    key: 0,
+    src: 'https://cdn2.hubspot.net/' + $data.companyData.logo_url,
+    "class": "w-40",
+    alt: "Logo de l'entreprise"
+  }, null, 8
+  /* PROPS */
+  , ["src"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.companyData.name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
     href: '//' + $data.companyData.domain,

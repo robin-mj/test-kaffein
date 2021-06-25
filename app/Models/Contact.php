@@ -20,6 +20,7 @@ class Contact extends Model
         'last_name',
         'email',
         'phone',
+        'avatar_url',
         'ID_company',
     ];
 

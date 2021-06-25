@@ -23,7 +23,7 @@ class HubSpotRepository
             ],
             'body' => '{
                 "filterGroups":[{"filters":[{"value":"1623196800000","propertyName":"createdate","operator":"GTE"}]}],
-                "properties": [ "name", "domain", "description", "industry", "numberofemployees", "annualrevenue", "city", "country", "zip", "phone" ]
+                "properties": [ "name", "domain", "description", "industry", "numberofemployees", "annualrevenue", "city", "country", "zip", "phone", "hs_avatar_filemanager_key" ]
             }',
         ]);
 

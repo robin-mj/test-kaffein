@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use GuzzleHttp\Client;
 use App\Models\Company;
 use Illuminate\Http\Request;
 

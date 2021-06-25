@@ -38,6 +38,7 @@ class DataManager
             'city' => $company_data->properties->city,
             'zip_code' => $company_data->properties->zip,
             'country' => $company_data->properties->country,
+            'logo_url' => $company_data->properties->hs_avatar_filemanager_key,
         ]);
 
         return $company;

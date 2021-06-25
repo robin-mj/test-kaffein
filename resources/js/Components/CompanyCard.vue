@@ -2,7 +2,8 @@
     <div @click="togglePopUp" class="flex items-center justify-between mx-6 p-8 rounded-3xl cursor-pointer transition duration-200 ease-in-out hover:bg-purple-light hover:shadow font-montserrat font-medium text-gray-900 text-2xl">
 
         <div class="w-1/5 flex items-center space-x-10">
-            <div class="p-14 bg-purple-medium"></div>
+            <img v-if="companyData.logo_url" :src="'https://cdn2.hubspot.net/' + companyData.logo_url" class="w-28" alt="Logo de l'entreprise" />
+            <div v-else class="p-14 bg-purple-medium"></div>
             <p class="capitalize">{{ companyData.name }}</p>
         </div>
 
