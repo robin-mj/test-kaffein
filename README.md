@@ -9,6 +9,7 @@
 
 -   Ouvrez un terminal et placez vous dans le dossier contenant les fichiers du site web
 -   Installez les dependencies avec les commandes `npm install` & `composer install`
+-   Créez le fichier. env et générez la clé d'application avec les commandes `cp .env.example .env` & `php artisan key:generate`
 -   Renseignez les informations de connexion à votre base de données (préalablement créée) dans le fichier .env :
     ```
     DB_CONNECTION=mysql
